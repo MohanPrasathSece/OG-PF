@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="port.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+            transition: background 0.3s;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff4b4b;
+        }
+
+        nav a {
+            font-size: 1.2rem;
+            margin: 0 1rem;
+            color: #fff;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #ff4b4b;
+        }
+
+        section {
+            padding: 8rem 10%;
+            background-color: #111;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: #ff4b4b;
+            margin: 2rem auto 0;
+        }
+
+        .home {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: url('background.jpg') no-repeat center/cover;
+            color: #fff;
+        }
+
+        .home-img img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .home-img img:hover {
+            transform: scale(1.1);
+        }
+
+        .home-content h1 {
+            font-size: 3rem;
+            margin: 2rem 0;
+        }
+
+        .home-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .home-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin-right: 0.8rem;
+            font-size: 1.5rem;
+            color: #fff;
+            border: 2px solid #ff4b4b;
+            width: 50px;
+            height: 50px;
+            line-height: 46px;
+            text-align: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #ff4b4b;
+            color: #000;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 30px;
+            background: #ff4b4b;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #fff;
+            color: #ff4b4b;
+        }
+
+        /* Projects and Experience Section */
+        .project-item, .experience-item {
+            background-color: #222;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .project-item.show, .experience-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-item h3, .experience-item h3 {
+            font-size: 1.8rem;
+            color: #ff4b4b;
+            margin-bottom: 1rem;
+        }
+
+        .project-item p, .experience-item p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .experience-item ul {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .experience-item ul li {
+            font-size: 1.2rem;
+            color: #bbb;
+        }
+
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 1rem;
+                margin: 0 0.5rem;
+            }
+
+            .home-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .home-content h3 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+    <title>Portfolio | Mohan Prasath</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Mohan Prasath</a>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home">
+        <div class="home-img">
+            <img src="C:\Users\mohan\Downloads\pfp.jpg" alt="Mohan Prasath">
+        </div>
+        <div class="home-content">
+            <h1>Hi, It's <span>Mohan Prasath</span></h1>
+            <h3 class="typing-text">I'm a Web Developer</h3>
+            <p>A passionate developer skilled in creating dynamic and responsive web solutions, adept in Java, Python, and C, with hands-on experience in web development and software engineering projects.</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/https://www.linkedin.com/in/mohan-prasath-frontenddeveloper/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/MohanPrasathSece" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://leetcode.com/MohanPrasathSece " target="_blank"><i class="fa-solid fa-code"></i></a>
+            </div>
+            <a href="#contact" class="btn">Hire me</a>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <ul>
+            <li><strong>B.E ECE</strong>, Sri Eshwar College of Engineering (2023-2027), CGPA: 7.57 (up to 2nd Semester)</li>
+            <li><strong>HSC</strong>, Dr. V. Genguswamy Naidu Mat. Hr. Sec. School, Percentage: 89.5% (2021-2023)</li>
+            <li><strong>SSLC</strong>, Dr. V. Genguswamy Naidu Mat. Hr. Sec. School, Pass (2020-2021)</li>
+        </ul>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="experience-item">
+            <h3>Shadow Fox Internship (Web Development)</h3>
+            <p>Developed responsive websites, collaborated on front-end and back-end tasks, and implemented API integrations to optimize performance.</p>
+            <ul>
+                <li>Improved website speed by optimizing images and scripts.</li>
+                <li>Collaborated on the development of a fully responsive admin dashboard.</li>
+                <li>Worked with APIs to integrate third-party services such as Google Maps and Firebase.</li>
+            </ul>
+        </div>
+        <div class="experience-item">
+            <h3>Goldman Sachs Virtual Experience</h3>
+            <p>Identified security vulnerabilities, proposed advanced password protection measures, and drafted a report with actionable recommendations.</p>
+            <ul>
+                <li>Researched and suggested improvements to password hashing algorithms.</li>
+                <li>Proposed encryption strategies to enhance security in cloud applications.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-item">
+            <h3>DineMate</h3>
+            <p>A Java and MySQL-based restaurant table management system designed for streamlining restaurant operations.</p>
+            <ul>
+                <li>CRUD operations for reservations.</li>
+                <li>Real-time table availability tracking.</li>
+                <li>Analytics for peak dining hours.</li>
+                <li>Insights for restaurant management.</li>
+            </ul>
+        </div>
+        <div class="project-item">
+            <h3>Warehouse Management System</h3>
+            <p>A comprehensive inventory and supplier management application developed in Java with JDBC integration.</p>
+            <ul>
+                <li>Stock tracking and supplier evaluation.</li>
+                <li>Automated low-inventory notifications.</li>
+                <li>Detailed inventory logs for auditing.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Proficient in programming languages: Java, Python, C</li>
+            <li>Web development technologies: HTML, CSS, JavaScript, MySQL</li>
+            <li>Version control: Git, GitHub</li>
+            <li>Tools: Visual Studio Code, Eclipse</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:mohanprasath563@gmail.com">mohanprasath563@gmail.com</a></p>
+        <p>Phone: <a href="tel:9025421149">9025421149</a></p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/https://www.linkedin.com/in/mohan-prasath-frontenddeveloper/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/MohanPrasathSece" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://leetcode.com/MohanPrasathSece " target="_blank"><i class="fa-solid fa-code"></i></a>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            // Show sections and list items with animation
+            const sections = document.querySelectorAll('section');
+            const projectItems = document.querySelectorAll('.project-item');
+            const experienceItems = document.querySelectorAll('.experience-item');
+            const delay = 100; // Animation delay for each section/item
+
+            sections.forEach((section, index) => {
+                setTimeout(() => section.classList.add('show'), index * delay);
+            });
+
+            projectItems.forEach((item, index) => {
+                setTimeout(() => item.classList.add('show'), index * delay);
+            });
+
+            experienceItems.forEach((item, index) => {
+                setTimeout(() => item.classList.add('show'), index * delay);
+            });
+        });
+    </script>
+</body>
+</html>
